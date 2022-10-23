@@ -138,4 +138,4 @@ require (
 	sigs.k8s.io/yaml v1.2.0 // indirect
 )
 
-replace github.com/coretrix/hitrix => github.com/hats00n/hitrix main
+replace github.com/coretrix/hitrix => github.com/hats00n/hitrix v0.0.3-0.20221023101650-d7537169fdde
