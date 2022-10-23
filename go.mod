@@ -1,6 +1,6 @@
-module github.com/coretrix/hitrix
+module github.com/hats00n/hitrix
 
-go 1.17
+go 1.18
 
 require (
 	cloud.google.com/go/storage v1.22.1
@@ -14,6 +14,7 @@ require (
 	github.com/chromedp/cdproto v0.0.0-20210910012206-68626162910d
 	github.com/chromedp/chromedp v0.7.4
 	github.com/coretrix/clockwork v1.1.1
+	github.com/coretrix/hitrix v1.2.31
 	github.com/dongri/phonenumber v0.0.0-20210304071411-690733f34185
 	github.com/fatih/color v1.13.0
 	github.com/getsentry/sentry-go v0.13.0

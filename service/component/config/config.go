@@ -1,6 +1,8 @@
 package config
 
 import (
+	"errors"
+	"fmt"
 	"os"
 	"regexp"
 	"strings"
@@ -83,14 +85,16 @@ func NewConfig(appName, mode, localConfigFolder string) (*Config, error) {
 	c.WithOptions(config.ParseEnv)
 	c.AddDriver(yaml.Driver)
 
-	yamlFileAppConfig, err := os.ReadFile(configFolder + "/" + appName + "/config.yaml")
+	yamlFileAppConfigPath := configFolder + "/" + appName + "/config.yaml"
+	yamlFileAppConfig, err := os.ReadFile(yamlFileAppConfigPath)
 	if err != nil {
-		return nil, err
+		return nil, errors.New(fmt.Sprintf("Could not create %s : %s", yamlFileAppConfigPath, err.Error()))
 	}
 
-	yamlFileHitrixConfig, err := os.ReadFile(configFolder + "/hitrix.yaml")
+	yamlFileHitrixConfigPath := configFolder + "/hitrix.yaml"
+	yamlFileHitrixConfig, err := os.ReadFile(yamlFileHitrixConfigPath)
 	if err != nil {
-		return nil, err
+		return nil, errors.New(fmt.Sprintf("Could not create %s : %s", yamlFileHitrixConfigPath, err.Error()))
 	}
 
 	err = c.LoadSources(config.Yaml, parseEnvVariables(yamlFileAppConfig), parseEnvVariables(yamlFileHitrixConfig))
